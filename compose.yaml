@@ -41,7 +41,7 @@ services:
     image: traefik:v3.4
     command: --providers.docker
     ports:
-      - 80:80
+      - 8080:8080
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
@@ -171,7 +171,7 @@ services:
       PMA_PASSWORD: secret
     labels:
       traefik.http.routers.phpmyadmin.rule: Host(`db.localhost`)
-      traefik.http.services.phpmyadmin.loadbalancer.server.port: 80
+      traefik.http.services.phpmyadmin.loadbalancer.server.port: 8080
 
 ###################################################
 # Volumes
